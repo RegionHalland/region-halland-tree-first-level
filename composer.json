@@ -1,0 +1,13 @@
+{
+    "name": "regionhalland/region-halland-tree-first-level",
+    "description": "Front-end-plugin som returnerar första nivån i en sid-taxonomi",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roland Hydén",
+            "email": "Roland.Hyden@Regionhalland.se"
+        }
+    ],
+    "require": {}
+}
