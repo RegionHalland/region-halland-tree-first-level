@@ -55,18 +55,18 @@ OBS! Justera så att du hämtar aktuell version.
 
 ```sh
 @php($first_level_pages = get_region_halland_tree_first_level())	
-	@if(isset($first_level_pages) && !empty($first_level_pages))
-		  @foreach($first_level_pages as $first_level_page)
-			   @if($first_level_page->active === true)
-				    <a class="active" href="{{ $first_level_page->url }}">{{ $first_level_page->post_title }}</a>
-			   @else
-				    <a href="{{ $first_level_page->url }}">{{ $first_level_page->post_title }}</a>
-		  	 @endif
-	    @endforeach
-	@endif
+    @if(isset($first_level_pages) && !empty($first_level_pages))
+        @foreach($first_level_pages as $first_level_page)
+            @if($first_level_page->active === true)
+                <a class="active" href="{{ $first_level_page->url }}">{{ $first_level_page->post_title }}</a>
+            @else
+                <a href="{{ $first_level_page->url }}">{{ $first_level_page->post_title }}</a>
+            @endif
+        @endforeach
+    @endif
 @endif
 ```
-
+        
 
 ## Exempel på hur arrayen kan se ut
 
