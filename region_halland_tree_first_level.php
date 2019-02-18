@@ -13,7 +13,7 @@
 	*/
 
 	// Returnera en array med page-info
-	function get_region_halland_tree_first_level() {
+	function get_region_halland_tree_first_level($sortOrder = 'menu_order') {
 		
 		// Aktuell post
 		global $post;
@@ -28,7 +28,7 @@
 		// Hämta alla sidor från första nivån i en sid-taxonomi
 		$pages = get_pages(array(
 			'parent' => 0,
-			'sort_column' => 'post_title', 
+			'sort_column' => $sortOrder, 
 			'sort_order' => 'ASC'
 		));
 

@@ -157,5 +157,8 @@ array (size=3)
 
 ## Versionhistorik
 
+### 1.1.0
+- Valfri sortering, default är "menu_order"
+
 ### 1.0.0
 - Första version
