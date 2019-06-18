@@ -157,6 +157,10 @@ array (size=3)
 
 ## Versionhistorik
 
+### 1.2.0
+- Sparar en session med ID om post_parent = 0
+- Denna session jämförs sedan med ID för att sätta active
+
 ### 1.1.0
 - Valfri sortering, default är "menu_order"
 

@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland Tree First Level
 	Description: Front-end-plugin som returnerar första nivån i en sid-taxonomi
-	Version: 1.0.1
+	Version: 1.2.0
 	Author: Roland Hydén
 	License: MIT
 	Text Domain: regionhalland
@@ -15,37 +15,35 @@
 	// Returnera en array med page-info
 	function get_region_halland_tree_first_level($sortOrder = 'menu_order') {
 		
+		session_start();
+
 		// Aktuell post
 		global $post;
 
 		// Variabel med ID för aktuell post
 		if ($post) {
-			$top_page = $post->ID;
+			$myPostID = $post->ID;
+			$myPostParentID = $post->post_parent;
+			if($myPostParentID == 0) {
+				$_SESSION["tre_first_level_post_id"] = $myPostID;
+			}
 		} else {
-			$top_page = 0;
+			$myPostID = 0;
 		}
-		
+
 		// Hämta alla sidor från första nivån i en sid-taxonomi
 		$pages = get_pages(array(
 			'parent' => 0,
+			'exclude' => get_option('page_on_front'),
 			'sort_column' => $sortOrder, 
 			'sort_order' => 'ASC'
 		));
 
-		// Variabel med ID för första-sidan
-		$frontpage = (int)get_option('page_on_front');
-
 		// Loopa ut alla sidor exklusive första-sidan
-		foreach ($pages as $i => $page) {
-			
-			// Exkludera första-sidan
-			if ($page->ID === $frontpage) {
-				unset($pages[$i]);
-				continue;
-			}
+		foreach ($pages as $page) {
 			
 			// Sätt en flagga om loopad sida är nuvarande sida
-			if (isset($top_page) && $top_page === $page->ID) {
+			if ($page->ID == $_SESSION["tre_first_level_post_id"]) {
 				$page->active = true;
 			}
 
