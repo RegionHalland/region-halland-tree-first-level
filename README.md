@@ -57,7 +57,7 @@ OBS! Justera så att du hämtar aktuell version.
 @php($first_level_pages = get_region_halland_tree_first_level())	
     @if(isset($first_level_pages) && !empty($first_level_pages))
         @foreach($first_level_pages as $first_level_page)
-            @if($first_level_page->active === true)
+            @if($first_level_page->is_active == 1)
                 <a class="active" href="{{ $first_level_page->url }}">{{ $first_level_page->post_title }}</a>
             @else
                 <a href="{{ $first_level_page->url }}">{{ $first_level_page->post_title }}</a>
@@ -99,6 +99,7 @@ array (size=3)
       public 'comment_count' => string '0' (length=1)
       public 'filter' => string 'raw' (length=3)
       public 'url' => string 'http://exempel.se/lorem-ipsum/' (length=38)
+      public 'is_active' => int 1
   1 => 
     object(WP_Post)[8849]
       public 'ID' => int 11
@@ -126,6 +127,7 @@ array (size=3)
       public 'comment_count' => string '0' (length=1)
       public 'filter' => string 'raw' (length=3)
       public 'url' => string 'http://exempel.se/aldu-integer/' (length=41)
+      public 'is_active' => int 0
   2 => 
     object(WP_Post)[8851]
       public 'ID' => int 17
@@ -153,9 +155,16 @@ array (size=3)
       public 'comment_count' => string '0' (length=1)
       public 'filter' => string 'raw' (length=3)
       public 'url' => string 'http://exempel.se/aliquam-eros-elit/' (length=44)
+      public 'is_active' => int 0
 ```
 
 ## Versionhistorik
+
+### 1.2.2
+- Lagt till fältet is_active som returnerar 1 eller 0
+- Om ingen post har is_active = 1 får den första posten is_active = 1
+- Finns bakåtkompabiltet då fältet active = true fortfarande finns kvar
+- Dock kan detta fält i enstaka fall returnera att ingen post har active = true
 
 ### 1.2.1
 - Kollar om session_start redan har satts
