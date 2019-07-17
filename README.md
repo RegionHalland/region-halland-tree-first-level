@@ -10,6 +10,14 @@ Nedan följer instruktioner hur du kan använda pluginet "region-halland-tree-fi
 Denna plugin skapar en array() med alla sidor som har parent = 0 i en sid-taxonomi
 
 
+## Licensmodell
+
+Denna plugin använder licensmodell GPL-3.0. Du kan läsa mer om denna licensmodell via den medföljande filen:
+```sh
+LICENSE (https://github.com/RegionHalland/region-halland-tree-first-level/blob/master/LICENSE)
+```
+
+
 ## Installation och aktivering
 
 ```sh
@@ -160,7 +168,11 @@ array (size=3)
 
 ## Versionhistorik
 
-### 1.2.2
+### 1.4.0
+- Uppdaterat med information om licensmodell
+- Bifogat fil med licensmodell
+
+### 1.3.0
 - Lagt till fältet is_active som returnerar 1 eller 0
 - Om ingen post har is_active = 1 får den första posten is_active = 1
 - Finns bakåtkompabiltet då fältet active = true fortfarande finns kvar

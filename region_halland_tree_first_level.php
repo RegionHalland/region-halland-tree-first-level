@@ -6,9 +6,9 @@
 	/*
 	Plugin Name: Region Halland Tree First Level
 	Description: Front-end-plugin som returnerar första nivån i en sid-taxonomi
-	Version: 1.3.0
+	Version: 1.4.0
 	Author: Roland Hydén
-	License: MIT
+	License: GPL-3.0
 	Text Domain: regionhalland
 	*/
 
